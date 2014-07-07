@@ -1,0 +1,32 @@
+<html>
+<head>
+  <title>Guess the Number!</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  var secretNumber = parseInt(Math.random() * 100, 10) + 1;
+  // console.log("Global scope defined secret number: " + secretNumber);
+  var answer = prompt("Enter a number between 1 and 100");
+  
+  var result = function(){
+  	// console.log("Inner scope defined secret number: " + secretNumber);
+  	if(answer > secretNumber){
+  		alert('Pick lower');
+  		answer = prompt("Enter a number lower than " + answer);
+  		result();
+  	}
+  	else if(answer < secretNumber){
+  		alert('Pick higher');
+  		answer = prompt("Enter a number higher than " + answer);
+  		result();
+  	}
+  	else {
+  		alert("Congratulations!  You win!");
+  	}
+  };	
+ result();
+</script>
+
+</body>
+</html>
